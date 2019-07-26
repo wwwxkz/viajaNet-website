@@ -1,0 +1,115 @@
+<div id="header">
+
+  <div id="types">
+    <div>
+      <h5 id="types-text">Passagens Aéreas</h5>
+    </div>
+  </div>
+
+  <div id="motor">
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">
+      <h5>Ida e Volta</h5>
+    </label>
+
+    <div id="origin-date">
+      <div>
+        <h5>Informe sua origem</h5>
+        <div id="form-container">
+          <mat-form-field class="form-control">
+            <input #itemFilterInput1 id="form-input" placeholder="" matInput
+              [formControl]="searchTerm1" [matAutocomplete]="auto" (blur)="getof(1)" (click)="showItems1 = true">
+          </mat-form-field>
+          <div [hidden]="!showItems1" id="auto-complete">
+            <mat-option *ngFor="let item of searchResult1" [value]="item" (click)="selectItem(item,1)">
+              {{ item }}
+            </mat-option>
+          </div>
+        </div>
+
+      </div>
+      <div>
+        <h5>Destino</h5>
+        <div id="form-container">
+          <mat-form-field class="form-control">
+            <input #itemFilterInput2 id="form-input" placeholder="" matInput
+              [formControl]="searchTerm2" [matAutocomplete]="auto" (blur)="getof(2)" (click)="showItems2 = true">
+          </mat-form-field>
+          <div [hidden]="!showItems2" id="auto-complete">
+            <mat-option *ngFor="let item of searchResult2" [value]="item" (click)="selectItem(item,2)">
+              {{ item }}
+            </mat-option>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="people-destiny">
+      <div id="dates">
+        <div>
+          <h5>Data de Ida</h5>
+          <Input class="form-control" type="date" placeholder="Data de Ida" />
+        </div>
+        <div>
+          <h5>Data de volta</h5>
+          <Input class="form-control" type="date" placeholder="Data de Volta" />
+        </div>
+      </div>
+
+
+      <div id="people">
+        <div>
+          <h5>Adultos</h5>
+          <select class="custom-select">
+            <option value="1">1 adulto</option>
+            <option value="2">2 adultos</option>
+            <option value="3">3 adultos</option>
+            <option value="4">4 adultos</option>
+            <option value="5">5 adultos</option>
+            <option value="6">6 adultos</option>
+            <option value="7">7 adultos</option>
+            <option value="8">8 adultos</option>
+            <option value="9">9 adultos</option>
+          </select>
+        </div>
+
+        <div>
+          <h5>Crianças</h5>
+          <select class="custom-select">
+            <option value="0">Nenhuma</option>
+            <option value="1">1 criança</option>
+            <option value="2">2 crianças</option>
+            <option value="3">3 crianças</option>
+            <option value="4">4 crianças</option>
+            <option value="5">5 crianças</option>
+            <option value="6">6 crianças</option>
+            <option value="7">7 crianças</option>
+            <option value="8">8 crianças</option>
+            <option value="9">9 crianças</option>
+          </select>
+          <h5 id="people-desc">2 a 11 anos</h5>
+        </div>
+
+        <div>
+          <h5>Bebês</h5>
+          <select class="custom-select">
+            <option value="0">Nenhum</option>
+            <option value="1">1 bebê</option>
+            <option value="2">2 bebês</option>
+            <option value="3">3 bebês</option>
+            <option value="4">4 bebês</option>
+            <option value="5">5 bebês</option>
+            <option value="6">6 bebês</option>
+            <option value="7">7 bebês</option>
+            <option value="8">8 bebês</option>
+            <option value="9">9 bebês</option>
+          </select>
+          <h5 id="people-desc">0 a 23 meses</h5>
+        </div>
+      </div>
+    </div>
+
+    <h5>+ Opções de busca</h5>
+  </div>
+  <Button class="btn btn-success" id="pesquisar">Pesquisar</Button>
+</div>
+<router-outlet></router-outlet>
